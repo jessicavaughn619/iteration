@@ -19,8 +19,7 @@ def two_sum(arr, target):
     seen = {}
     for i, e in enumerate(arr):
         complement = target - e
-        if not complement in seen:
-            seen[e] = i
-        else:
-            return (seen[e], i)
-    return (-1, -1)
+        if complement in seen:
+            return [seen[complement], i]
+        seen[e] = i
+    return []
